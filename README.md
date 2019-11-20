@@ -25,7 +25,7 @@ body {
         <div class="col-6"></div>
         <div class="col-5">
           <form>
-            <div class="card bg-transparent mb-5">
+            <div class="card bg-ligth mb-5">
               <div class="card-header">
                 Login
               </div>
