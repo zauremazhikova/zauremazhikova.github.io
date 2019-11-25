@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -61,7 +60,7 @@
             <a class="nav-link bg-dark text-light mb-3" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
           </div>
         </div>
-        <div class="col-6 m-4">
+        <div class="col-8 m-4">
           <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                <div class="card bg-light mb-5" id="mycard">
@@ -87,7 +86,7 @@
                 </div>              
               </div>  
               <!-- Blog Post -->
-              <div class="row" id = "postBody">
+              <div id = "postBody">
 
               </div>
 
@@ -97,7 +96,7 @@
           </div>
         </div>
         <!-- Nav -->
-        <div class="col-4 m-4">
+        <div class="col-2 m-4">
         </div>
       </div>
     </div>
@@ -133,13 +132,13 @@
         photo: "NY.jpg",
         title:"CHRISTMAS IN NEW YORK",
         content:"Christmas is definitely an amazing time to visit New York. Christmas markets are open all around town, storefronts are decorated with colorful lights and special Christmas performances take place. New York is made for Christmas celebrations.",
-         author:"Johnny Depp"
+        author:"Johnny Depp"
         },
         {
         photo: "NZ.jpg",
         title:"AMAIZING NEW ZELAND",
         content:"New Zealand is an amazing country, it is the homeland to 4 million people and 60 million sheep! If you are still hesitant whether or not you should visit New Zealand, DON’T BE! The nature is breathtaking, the country is like no other, and chances are it will become your favorite country!",
-         author:"Will Smith"
+        author:"Will Smith"
         }
       ];
 
@@ -154,7 +153,7 @@
                               <img src=${posts[i].photo} class="img-fluid" alt="Responsive image">
                             </div>
                             <div class="card-body">
-                                <h2 class="card-title">${posts[i].title}</h2>
+                                <h2 class="card-title text-info">${posts[i].title}</h2>
                                 <p class="card-text">${posts[i].content}</p>
                             </div>
                           <div class="card-footer text-muted">
@@ -166,13 +165,25 @@
           document.getElementById('postBody').innerHTML = postContent;
       }
 
-
       function SharePost() {
-        var photo = document.getElementById('myPhotoPost').value;
+
+        var namep = "";
+        var control = document.getElementById("myPhotoPost");
+        var i = 0,
+            files = control.files,
+            len = files.length;
+     
+        for (; i < len; i++) {
+            namep = files[i].name;
+    //         console.log("Type: " + files[i].type);
+    //         console.log("Size: " + files[i].size + " bytes");
+        };
+
+        var photo = namep;
         var title = document.getElementById('myTitlePost').value;
         var content = document.getElementById('myTextPost').value;
         var author = "me";
-        var post = {photo, title, content};
+        var post = {photo: photo, title: title, content: content, author: author};
 
         posts.push(post);
         showPosts();
